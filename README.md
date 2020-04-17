@@ -1,5 +1,5 @@
 # forever-remember 
-
+### 基于vue+elementUI与spring boot+mybatis的抗疫启示录SPA
 START界面：  
 1.首先含有一个启动页： views/start组件，  
 2.start组件包括两个子组件  
@@ -16,7 +16,20 @@ INDEX界面：
 2.完善了鼠标滚轮效果，用鼠标滚轮进行上下滚动，而左右滚动则依赖于原生的标识符按钮，做了开关检测，500ms防止滚动过量
 3.接下来需要做的是完善index  
 
+ps:   
+network封装了一个axios实例（具体接口不明确，所以先。。。之后明确接口再封装）
 
+当前github开源项目链接： 
+
+<a href="https://github.com/elemefe">element-ui</a>   
+
+<a href="https://github.com/vuejs/vue">vue</a>   
+
+<a href="https://github.com/spring-projects/spring-boot">spring boot</a>   
+
+<a href="https://github.com/mybatis/mybatis-3/tree/master/src/site">mybatis</a>   
+
+<a href="https://github.com/axios/axios">axios</a>  
 ## Project setup
 ```
 npm install

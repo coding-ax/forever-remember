@@ -24,10 +24,19 @@
 </template>
 
 <script>
+import {request} from '../network/index';
 export default {
   name: "index",
   data() {
     return {};
+  },
+  created () {
+        // http://123.57.249.95:8091/fr/data
+        request().get("http://123.57.249.95:8091/fr/data",{
+
+        }).then(res=>{
+          console.log(res);
+        })
   },
   mounted() {
     /**webkit */
