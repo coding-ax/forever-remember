@@ -12,7 +12,6 @@
 <script>
 import featureView from "../components/common/FeatureView";
 import getStart from "../components/context/GetStart/GetStart";
-
 export default {
   name: "start",
   data() {
