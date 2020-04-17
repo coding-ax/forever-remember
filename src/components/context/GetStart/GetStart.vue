@@ -19,7 +19,7 @@ export default {
   name: "GetStart",
   data() {
     return {
-      texts: ["世界那么大", "还是遇见你", "柳下闻瑶琴", "起舞和一曲"],
+      texts: ["世界那么大", "还是遇见你", "的囧撒娇带搜房静安寺阿斯丹佛结案司法阿斯偶发爱是奇偶发奥斯福阿斯偶发爱搜覅赛欧房间爱搜傲视", "起舞和一曲"],
     };
   },
   components: {
@@ -38,7 +38,8 @@ export default {
   /* width: 600px; */
   /* height: 300px; */
   background-color: #fefefe;
-  box-shadow: 10px 10px 10px #888888;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04); */
+  box-shadow: 10px 2px 10px #888888 ;
   border-radius: 5px;
   position: relative;
   margin: auto;

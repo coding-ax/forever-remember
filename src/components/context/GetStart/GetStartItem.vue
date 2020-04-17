@@ -1,5 +1,5 @@
 <template>
-  <transition name="el-fade-in-linear">
+  <transition name="el-zoom-in-center">
     <div class="start-item" v-show="show">{{text}}</div>
   </transition>
 </template>
@@ -30,5 +30,6 @@ export default {
     color: #888888;
     font-size: 20px;
     line-height: 40px;
+    padding: 10px;
 }
 </style>
