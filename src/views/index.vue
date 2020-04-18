@@ -1,7 +1,7 @@
 <template>
   <div class="index">
     <!-- 纵向轮播 -->
-    <div class="navbar">
+    <!-- <div class="navbar">
       <el-menu
         :default-active="activeIndex"
         class="el-menu-demo nav-bar-box"
@@ -37,8 +37,9 @@
           <el-menu-item index="4-4">选项3</el-menu-item>
         </el-submenu>
       </el-menu>
-    </div>
+    </div> -->
 
+<!-- 竖向轮播 -->
     <el-carousel
       height="100vh"
       indicator-position="none"
@@ -53,7 +54,7 @@
             <div>
               <!-- 用单页级别(views级)组件取代这个东西 -->
               <!-- <h1>{{item1}}&{{item2}}</h1> -->
-              <component :is="'indexShow'+item1+item2"></component>
+              <component :is="'indexShow'+item1+item2" ></component>
             </div>
           </el-carousel-item>
         </el-carousel>
@@ -116,7 +117,7 @@ export default {
   mounted() {
     /**webkit */
     //开关
-    let flag = true;
+    var flag = true;
     window.addEventListener("mousewheel", event => {
       // console.log(event.wheelDelta);
       if (flag) {
@@ -153,12 +154,18 @@ export default {
     },
     nextV() {
       this.$refs.vert.next();
-    }
+    },
   }
 };
 </script>
 
 <style scoped>
+.el-menu-item{
+  width:25vw;
+  text-align: center;
+}
+
+
 .index {
   position: absolute;
   text-align: center;
@@ -179,5 +186,7 @@ export default {
 }
 .test{
   width: 100%;
+  display: none;
 }
+
 </style>
