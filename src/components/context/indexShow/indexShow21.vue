@@ -10,7 +10,7 @@
           :key="url"
           :src="url"
         ></el-image>
-         <el-image
+        <!-- <el-image
           @click="storyShow(index)"
           :preview-src-list="urls"
           v-for="(url,index) in urls"
@@ -24,7 +24,7 @@
           v-for="(url,index) in urls"
           :key="url"
           :src="url"
-        ></el-image>
+        ></el-image>-->
       </el-main>
       <el-main>
         <transition name="el-zoom-in-center">
@@ -72,11 +72,11 @@ export default {
   components: {},
   methods: {
     storyShow(index) {
-      this.showText=false;
+      this.showText = false;
       setTimeout(() => {
-        this.showText=true;
+        this.showText = true;
       }, 500);
-      this.currentIndex=index;
+      this.currentIndex = index;
     }
   }
 };
@@ -98,6 +98,7 @@ export default {
   font-size: 30px;
   overflow-y: scroll;
   height: 46vh;
+  border: 1px #fefefe solid;
 }
 
 body > .el-container {
@@ -120,5 +121,11 @@ body > .el-container {
   width: 20%;
   margin: 10px;
   border-radius: 5px;
+  transition: all 0.3s ;
+}
+.el-image:hover {
+  position: relative;
+  box-shadow: 5px 5px 5px #888888;
+  bottom: 2px;
 }
 </style>

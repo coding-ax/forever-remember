@@ -1,12 +1,10 @@
 <template>
   <div class="index">
-    <!-- 纵向轮播 -->
+   
     <!-- <div class="navbar">
       <el-menu
-        :default-active="activeIndex"
         class="el-menu-demo nav-bar-box"
-        mode="horizontal"
-        @select="handleSelect"  
+        mode="horizontal" 
       >
         <el-submenu class="nav-bar-item" index="1">
           <template slot="title">当前疫情</template>
@@ -39,7 +37,7 @@
       </el-menu>
     </div> -->
 
-<!-- 竖向轮播 -->
+<!-- 竖向轮播 --> <!-- 纵向轮播 -->
     <el-carousel
       height="100vh"
       indicator-position="none"
@@ -49,9 +47,12 @@
     >
       <el-carousel-item v-for="item1 in 4" :key="item1">
         <!-- 横向轮播 -->
-        <el-carousel height="100vh" :autoplay="false">
+        <el-carousel height="100vh" 
+        :autoplay="false"
+        indicator-position="none"
+        >
           <el-carousel-item v-for="item2 in 4" :key="item2">
-            <div>
+            <div class="place">
               <!-- 用单页级别(views级)组件取代这个东西 -->
               <!-- <h1>{{item1}}&{{item2}}</h1> -->
               <component :is="'indexShow'+item1+item2" ></component>
@@ -155,6 +156,12 @@ export default {
     nextV() {
       this.$refs.vert.next();
     },
+    handleSelect(){
+      console.log('select')
+    },
+    activeIndex(){
+      console.log('activeIndex')
+    }
   }
 };
 </script>
@@ -188,5 +195,8 @@ export default {
   width: 100%;
   display: none;
 }
-
+.place{
+  height: 100vh;
+  width: 100vw;
+}
 </style>
