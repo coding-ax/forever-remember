@@ -1,10 +1,14 @@
 <template>
   <div class="box">
-    <el-dialog title="简介"  :visible.sync="dialogVisible" width="30%" :before-close="handleClose"  :append-to-body='true'>
+    <el-dialog
+      title="简介"
+      :visible.sync="dialogVisible"
+      width="30%"
+      :before-close="handleClose"
+      :append-to-body="true"
+    >
       <span>{{contents[current].title}}</span>
-      <div>
-          {{contents[current].description}}
-      </div>
+      <div>{{contents[current].description}}</div>
       <span slot="footer" class="dialog-footer">
         <!-- <el-button @click="dialogVisible = false">取 消</el-button> -->
         <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
@@ -15,7 +19,7 @@
       <span>无情病魔，有道义士</span>
     </div>
 
-    <div class="show-box">
+    <div class="show-box" @mouseenter="banMove" @mouseleave="recover">
       <div class="box-item" v-for="(content,index) in contents" :key="index">
         <el-popover
           placement="top-start"
@@ -36,25 +40,27 @@
 
 <script>
 import featureView from "../../common/FeatureView";
-import { request } from '../../../network/index';
+import { request } from "../../../network/index";
 export default {
   name: "indexShow11",
   data() {
     return {
-      contents:[''],
+      contents: [""],
       dialogVisible: false,
-      current:0
+      current: 0
     };
   },
   components: {
     featureView
   },
-  created () {
-      let instance=request({});
-      instance.get('http://123.57.249.95:8091/fr/article?articleId=1').then((res)=>{
-          console.log(res.data.data.paragraphVOList);
-            this.contents=res.data.data.paragraphVOList;
-      })
+  created() {
+    let instance = request({});
+    instance
+      .get("http://123.57.249.95:8091/fr/article?articleId=1")
+      .then(res => {
+        console.log(res.data.data.paragraphVOList);
+        this.contents = res.data.data.paragraphVOList;
+      });
   },
   methods: {
     handleClose(done) {
@@ -64,9 +70,17 @@ export default {
         })
         .catch(_ => {});
     },
-    buttonClick(index){
-        this.dialogVisible = true;
-        this.current=index;
+    buttonClick(index) {
+      this.dialogVisible = true;
+      this.current = index;
+    },
+    banMove() {
+      console.log("Move in");
+     this.$emit('banMouse');
+    },
+    recover() {
+      console.log("move out");
+     this.$emit('recoverMouse');
     }
   }
 };
