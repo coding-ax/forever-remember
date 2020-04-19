@@ -3,13 +3,16 @@
     <el-container>
       <el-header>那些逆行者们</el-header>
       <el-main>
-        <el-image
-          @click="storyShow(index)"
-          :preview-src-list="urls"
+        <el-tooltip
           v-for="(url,index) in urls"
           :key="url"
-          :src="url"
-        ></el-image>
+          class="item"
+          effect="dark"
+          content="点击预览大图"
+          placement="top-start"
+        >
+          <el-image @click="storyShow(index)" :preview-src-list="urls" :src="url"></el-image>
+        </el-tooltip>
         <!-- <el-image
           @click="storyShow(index)"
           :preview-src-list="urls"
@@ -97,7 +100,7 @@ export default {
   color: #888888;
   font-size: 30px;
   overflow-y: scroll;
-  height: 46vh;
+  height: 50vh;
   border: 1px #fefefe solid;
 }
 
@@ -121,7 +124,7 @@ body > .el-container {
   width: 20%;
   margin: 10px;
   border-radius: 5px;
-  transition: all 0.3s ;
+  transition: all 0.3s;
 }
 .el-image:hover {
   position: relative;
