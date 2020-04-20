@@ -4,7 +4,7 @@ import axios from "axios";
 export  function request(config) {
     const instance = axios.create({
         /**超时时间 */
-        timeout: 5000
+        timeout: 10000
     })
     return instance;
 };
