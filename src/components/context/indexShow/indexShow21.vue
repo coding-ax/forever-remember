@@ -39,7 +39,9 @@
       <el-main>
         <transition name="el-zoom-in-center">
           <div v-show="showText" class="transition-box" id="show-text">
-            <div style="textAlign:center">{{heroName[currentIndex]}}</div>
+            <div style="textAlign:center">
+              <h3>{{heroName[currentIndex]}}</h3>
+            </div>
             <div class="text-box">
               <!-- <pre> {{text[currentIndex]}}</pre> -->
               {{text[currentIndex]}}
