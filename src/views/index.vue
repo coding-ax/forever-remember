@@ -7,28 +7,28 @@
           <el-menu-item index="1-1" @click="changeWay(1,1)">选项1</el-menu-item>
           <el-menu-item index="1-2" @click="changeWay(1,2)">选项2</el-menu-item>
           <el-menu-item index="1-3" @click="changeWay(1,3)">选项3</el-menu-item>
-          <el-menu-item index="1-4" @click="changeWay(1,4)">选项3</el-menu-item>
+          <el-menu-item index="1-4" @click="changeWay(1,4)">选项4</el-menu-item>
         </el-submenu>
         <el-submenu class="nav-bar-item" index="2">
           <template slot="title">英雄故事</template>
           <el-menu-item index="2-1" @click="changeWay(2,1)">选项1</el-menu-item>
           <el-menu-item index="2-2" @click="changeWay(2,2)">选项2</el-menu-item>
           <el-menu-item index="2-3" @click="changeWay(2,3)">选项3</el-menu-item>
-          <el-menu-item index="2-4" @click="changeWay(2,4)">选项3</el-menu-item>
+          <el-menu-item index="2-4" @click="changeWay(2,4)">选项4</el-menu-item>
         </el-submenu>
         <el-submenu class="nav-bar-item" index="3">
           <template slot="title">回首往昔</template>
           <el-menu-item index="3-1" @click="changeWay(3,1)">选项1</el-menu-item>
           <el-menu-item index="3-2" @click="changeWay(3,2)">选项2</el-menu-item>
           <el-menu-item index="3-3" @click="changeWay(3,3)">选项3</el-menu-item>
-          <el-menu-item index="3-4" @click="changeWay(3,4)">选项3</el-menu-item>
+          <el-menu-item index="3-4" @click="changeWay(3,4)">选项4</el-menu-item>
         </el-submenu>
         <el-submenu class="nav-bar-item" index="4">
           <template slot="title">警世之钟</template>
           <el-menu-item index="4-1" @click="changeWay(4,1)">选项1</el-menu-item>
           <el-menu-item index="4-2" @click="changeWay(4,2)">选项2</el-menu-item>
           <el-menu-item index="4-3" @click="changeWay(4,3)">选项3</el-menu-item>
-          <el-menu-item index="4-4" @click="changeWay(4,4)">选项3</el-menu-item>
+          <el-menu-item index="4-4" @click="changeWay(4,4)">选项4</el-menu-item>
         </el-submenu>
       </el-menu>
     </div>
@@ -146,14 +146,14 @@ export default {
     // });
   },
   methods: {
-    prevV() {
-      //   console.log(this.$refs.vert)
-      //      console.log(this.$refs.vert.prev)
-      this.$refs.vert.prev();
-    },
-    nextV() {
-      this.$refs.vert.next();
-    },
+    // prevV() {
+    //   //   console.log(this.$refs.vert)
+    //   //      console.log(this.$refs.vert.prev)
+    //   this.$refs.vert.prev();
+    // },
+    // nextV() {
+    //   this.$refs.vert.next();
+    // },
     handleSelect() {
       console.log("select");
     },

@@ -3,7 +3,7 @@
     <div class="show-title">
        <h1>我本微末凡尘，然心有光明</h1> </div>
     <div class="show-body">
-      <el-carousel :interval="4000" type="card" height="95%">
+      <el-carousel :interval="2000" type="card" height="95%">
         <el-carousel-item v-for="item in res" :key="item.title">
           <div class="title">
             <h2>{{item.title}}</h2>
