@@ -1,7 +1,9 @@
 <template>
   <div class>
     <el-container>
+      <!-- 标题栏 -->
       <el-header>那些逆行者们</el-header>
+      <!-- 此处为element-ui布局法，使用了两个el-main区分为图片框和文字框 -->
       <el-main>
         <el-tooltip
           v-for="(url,index) in urls"
@@ -11,6 +13,7 @@
           content="点击预览大图"
           placement="top-start"
         >
+        <!-- click与mouseenter为同情况,设置最高400px -->
           <el-image
             @click="storyShow(index)"
             @mouseenter="storyShow(index)"
@@ -36,12 +39,15 @@
           :src="url"
         ></el-image>-->
       </el-main>
+      <!-- //处理文字： -->
       <el-main>
         <transition name="el-zoom-in-center">
           <div v-show="showText" class="transition-box" id="show-text">
             <div style="textAlign:center">
+              <!-- 标题 -->
               <h3>{{heroName[currentIndex]}}</h3>
             </div>
+            <!-- 正文 -->
             <div class="text-box">
               <!-- <pre> {{text[currentIndex]}}</pre> -->
               {{text[currentIndex]}}
@@ -59,15 +65,21 @@ export default {
   name: "indexShow11",
   data() {
     return {
+      //存放图片地址
       urls: [],
+      //存放文字内容
       text: [],
+      //用于标记动画效果
       showText: true,
+      //用于绑定相关内容
       currentIndex: 0,
+      //保存标题
       heroName: []
     };
   },
   components: {},
   methods: {
+    //点击图片和移动，用于加载动画
     storyShow(index) {
       this.showText = false;
       setTimeout(() => {
@@ -76,7 +88,9 @@ export default {
       this.currentIndex = index;
     }
   },
+  //请求数据
   created() {
+    //从载入的network中调用axios
     let instance = request();
     instance
       .get("http://123.57.249.95:8091/fr/article?articleId=4")
