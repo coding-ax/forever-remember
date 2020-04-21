@@ -21,6 +21,7 @@
             :src="url"
             fit="fit"
             style="max-height:400px"
+            lazy
           ></el-image>
         </el-tooltip>
         <!-- <el-image
@@ -62,7 +63,7 @@
 <script>
 import { request } from "../../../network/index";
 export default {
-  name: "indexShow11",
+  name: "indexShow21",
   data() {
     return {
       //存放图片地址
@@ -124,7 +125,7 @@ export default {
   color: #333;
   text-align: center;
   color: #888888;
-  font-size: 30px;
+  font-size: 20px;
   overflow-y: scroll;
   height: 50vh;
   border: 1px #fefefe solid;
@@ -160,5 +161,6 @@ body > .el-container {
 .text-box {
   padding: 20px 0 100px;
   width: 100%;
+  font-size: 15px;
 }
 </style>

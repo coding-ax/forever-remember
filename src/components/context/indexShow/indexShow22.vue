@@ -44,7 +44,7 @@
 import featureView from "../../common/FeatureView";
 import { request } from "../../../network/index";
 export default {
-  name: "indexShow11",
+  name: "indexShow22",
   data() {
     return {
       //存储文字
@@ -134,6 +134,7 @@ export default {
   height: 10vh;
   line-height: 10vh;
   color: #888888;
+  
 }
 .show-button {
   padding: 50px;

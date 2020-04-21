@@ -1,6 +1,7 @@
 <template>
   <div class="show-box">
     <div class="watch-box">
+      <!-- 使用vue-video-player -->
       <video-player
         class="video-player vjs-custom-skin"
         ref="videoPlayer"
@@ -24,7 +25,7 @@
 import { videoPlayer } from "vue-video-player";
 import "video.js/dist/video-js.css";
 export default {
-  name: "indexShow11",
+  name: "indexShow24",
   data() {
     return {
       playerOptions: {

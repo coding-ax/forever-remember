@@ -49,7 +49,7 @@
             <div class="place">
               <!-- 用单页级别(views级)组件取代这个东西 -->
               <!-- <h1>{{item1}}&{{item2}}</h1> -->
-              <component :is="'indexShow'+item1+item2"></component>
+              <component :is="'indexShow'+item1+item2" @changeway="changeWay"></component>
             </div>
           </el-carousel-item>
         </el-carousel>
