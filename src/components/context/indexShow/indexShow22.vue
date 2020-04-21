@@ -1,5 +1,6 @@
 <template>
   <div class="box">
+    <!-- 弹出每个人的内容 -->
     <el-dialog
       title="简介"
       :visible.sync="dialogVisible"
@@ -16,6 +17,7 @@
     </el-dialog>
 
     <div class="show-title">
+      <!-- 标题 -->
       <span>无情病魔，有道义士</span>
     </div>
 
@@ -45,7 +47,9 @@ export default {
   name: "indexShow11",
   data() {
     return {
+      //存储文字
       contents: [""],
+      //开关
       dialogVisible: false,
       current: 0
     };
@@ -54,6 +58,7 @@ export default {
     featureView
   },
   created() {
+    //对网络进行请求
     let instance = request({});
     instance
       .get("http://123.57.249.95:8091/fr/article?articleId=1")
@@ -63,6 +68,7 @@ export default {
       });
   },
   methods: {
+    //用于关闭弹出框
     handleClose(done) {
       this.$confirm("确认关闭？")
         .then(_ => {
@@ -70,10 +76,12 @@ export default {
         })
         .catch(_ => {});
     },
+    //给定提示框关闭
     buttonClick(index) {
       this.dialogVisible = true;
       this.current = index;
     },
+    /**测试是否检测的到 */
     banMove() {
       console.log("Move in");
      this.$emit('banMouse');
