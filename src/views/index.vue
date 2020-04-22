@@ -35,8 +35,9 @@
 
     <!-- 竖向轮播 -->
     <!-- 纵向轮播 -->
+    <!-- 以下原本具有  height="100vh" -->
     <el-carousel
-      height="100vh"
+     height="100vh"
       indicator-position="none"
       direction="vertical"
       :autoplay="false"
@@ -44,7 +45,10 @@
     >
       <el-carousel-item v-for="item1 in 4" :key="item1" :name="''+(item1+1)">
         <!-- 横向轮播 -->
-        <el-carousel height="100vh" :autoplay="false" indicator-position="none" ref="wid">
+        <!-- 以下原本具有  height="100vh" -->
+        <el-carousel   height="100vh"  :autoplay="false" indicator-position="none" ref="wid"
+       
+         >
           <el-carousel-item v-for="item2 in 4" :key="item2" :name="''+(item2+1)">
             <div class="place">
               <!-- 用单页级别(views级)组件取代这个东西 -->
@@ -217,6 +221,7 @@ export default {
 }
 .place {
   height: 100vh;
+  /* overflow: scroll; */
   width: 100vw;
 }
 </style>

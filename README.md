@@ -17,7 +17,7 @@ INDEX界面：
 3.接下来需要做的是完善index  
 
 ps:   
-network封装了一个axios实例（具体接口不明确，所以先。。。之后明确接口再封装）
+network封装了一个axios实例（具体接口不明确，所以先。。。之后明确接口再封装）//已经完成
 
 当前github开源项目链接： 
 
@@ -30,6 +30,9 @@ network封装了一个axios实例（具体接口不明确，所以先。。。�
 <a href="https://github.com/mybatis/mybatis-3/tree/master/src/site">mybatis</a>   
 
 <a href="https://github.com/axios/axios">axios</a>  
+
+<a href="https://github.com/axios/axios">vue-video-player</a>  
+
 ## Project setup
 ```
 npm install

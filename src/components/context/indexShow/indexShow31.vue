@@ -45,7 +45,7 @@
               xxxxxxxxxxxxxxxxxxxxxxxxxxx
               xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
               xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx   
+              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
               xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
             </div>
           </div>
@@ -68,7 +68,7 @@ export default {
   components: {},
   methods: {
     gotoChange(x, y) {
-        this.$emit('changeway',x,y);
+      this.$emit("changeway", x, y);
     }
   }
 };
@@ -85,14 +85,14 @@ export default {
 }
 .el-header,
 .el-footer {
-  background-color: #b3c0d1;
+  /* background-color: #b3c0d1; */
   color: #333;
   text-align: center;
   line-height: 60px;
   height: 10%;
 }
 .el-main {
-  background-color: #e9eef3;
+  /* background-color: #e9eef3; */
   color: #333;
   text-align: center;
   /* line-height: 160px; */
@@ -115,6 +115,8 @@ body > .el-container {
   padding: 10%;
   display: flex;
   flex-direction: row;
+  overflow-y: scroll;
+  /* height: 300px; */
 }
 .body-item {
   width: 29%;
