@@ -66,7 +66,7 @@ export default {
     return {};
   },
   components: {},
-  methods: {
+  methods: { 
     gotoChange(x, y) {
       this.$emit("changeway", x, y);
     }
@@ -76,7 +76,7 @@ export default {
 
 <style scoped>
 .show-box {
-  width: 100%;
+width: 99%;
   height: 100%;
 }
 .el-container {

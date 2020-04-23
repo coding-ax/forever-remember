@@ -85,7 +85,7 @@ export default {
       this.showText = false;
       setTimeout(() => {
         this.showText = true;
-      }, 500);
+      }, 300);
       this.currentIndex = index;
     }
   },

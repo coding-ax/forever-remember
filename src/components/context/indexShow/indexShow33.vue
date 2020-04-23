@@ -75,6 +75,7 @@ export default {
 .show-box {
   overflow-y: scroll;
   height: 100vh;
+  width: 99%;
   background-color: #eae0e0;
 }
 .body-item {

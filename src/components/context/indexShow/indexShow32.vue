@@ -128,6 +128,7 @@ export default {
 .show-box {
   overflow-y: scroll;
   height: 100vh;
+  width: 99%;
 }
 .body-box {
   width: 100%;
