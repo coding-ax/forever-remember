@@ -7,74 +7,77 @@
       </div>
     </div>
     <div class="input-box">
-      <textarea name="comment-content" id="comment" cols="130" rows="10" placeholder="请输入你想说的话..."></textarea>
+      <textarea
+        name="comment-content"
+        id="comment"
+        cols="130"
+        rows="10"
+        placeholder="请输入你想说的话..."
+        v-model="message"
+      ></textarea>
       <div class="button-box">
-        <el-button type="primary" @click="gotoChange(3,3)" plain>提交</el-button>
+        <el-button type="primary" @click="sendMessage" plain>提交</el-button>
       </div>
     </div>
 
-    <div class="show-comment">
-      <div :class="['show-item','item'+(item%4)]" v-for="item in 10" :key="item">
-        <div class="date">
-          <span>2020/04/20 20:16:14</span>
-        </div>
-        <div class="content">
-          xxxxxxssssssssssssss
-          sssssssssssssssxxxxxxxxxx
-        </div>
-      </div>
-      <div class="show-item item1">
-        <div class="date">
-          <span>2020/04/20 20:16:14</span>
-        </div>
-        <div class="content">
-          xxxxxxssssssssssssss
-          ssssssssssssssss
-          sssssssssssssssssssssssssssssssssssssssss
-          ssssssssssssssssssssssssxxxxxxxxxx
+    <el-collapse-transition>
+      <div class="show-comment" v-show="show">
+        <div :class="['show-item','item'+(index%4)]" v-for="(item,index) in data" :key="index">
+          <div class="date">
+            <span>{{item.date}}</span>
+          </div>
+          <div class="content">{{item.massage}}</div>
         </div>
       </div>
-
-      <div class="show-item item1">
-        <div class="date">
-          <span>2020/04/20 20:16:14</span>
-        </div>
-        <div class="content">
-          xxxxxxssssssssssssss
-          ssssssssssssssss
-          sssssssssssssssssssssssssssssssssssssssss
-          ssssssssssssssssssssssssxxxxxxxxxx
-        </div>
-      </div>
-      <div class="show-item item2">
-        <div class="date">
-          <span>2020/04/20 20:16:14</span>
-        </div>
-        <div class="content">xxxxxxsssxxxxxxx</div>
-      </div>
-      <div class="show-item item3">
-        <div class="date">
-          <span>2020/04/20 20:16:14</span>
-        </div>
-        <div class="content">
-          xxxxxxssssssssssssss
-          ssssssssssssssss
-          ssssssssssssdwsadqwrdfc wFVEANmdcWQHsssssssssssssssssssssssssssss
-          ssssssssssssssssssssssssxxxxxxxxxx
-        </div>
-      </div>
-    </div>
+    </el-collapse-transition>
   </div>
 </template>
 
 <script>
+import { request } from "./../../../network/index";
 export default {
   name: "indexShow44",
   data() {
-    return {};
+    return {
+      message: "",
+      data: null,
+      show: true
+    };
   },
   components: {},
-  methods: {}
+  methods: {
+    getData() {
+      let instance = request();
+      instance.get("http://123.57.249.95:8091/fr/message").then(res => {
+        console.log(res);
+        this.data = res.data.data;
+        this.message = "";
+      });
+    },
+    sendMessage() {
+      let instance = request();
+      this.show = false;
+      setTimeout(() => {
+        this.show = true;
+      }, 500);
+      // http://123.57.249.95:8091/fr/message?message=武汉加油&date=2020年4月24日16:25:33
+      let date = new Date().toLocaleString();
+      instance
+        .post(
+          "http://123.57.249.95:8091/fr/message?message=" +
+            this.message +
+            "&date=" +
+            date
+        )
+        .then(res => {
+          console.log(res);
+          this.getData();
+        });
+    }
+  },
+  created() {
+    this.getData();
+  }
 };
 </script>
 
@@ -89,6 +92,7 @@ export default {
   height: 100%;
   overflow-y: scroll;
   width: 99%;
+
 }
 .title {
   padding: 20px;
@@ -137,9 +141,12 @@ textarea {
   min-width: 230px;
   max-width: 600px;
   margin: 10px;
-  min-height: 120px;
+  min-height: 100px;
+  max-height: 300px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
   transition: all 0.3s;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
 }
 .show-item:hover {
   position: relative;
