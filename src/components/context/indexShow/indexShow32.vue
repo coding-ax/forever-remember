@@ -21,7 +21,7 @@
 
     <div class="body-box">
       <el-tabs v-model="activeName" type="card" @tab-click="handleClick" style="width:80%">
-        <el-tab-pane label="用户管理" name="first">
+        <el-tab-pane label="黑死病/鼠疫" name="first">
           <div class="pane">
             <div class="pane-item" v-for="item in 3" :key="item">
               <el-image :src="src" fit="cover" style="width:270px;height:150px"></el-image>
@@ -39,7 +39,7 @@
           </div>
         </el-tab-pane>
 
-        <el-tab-pane label="配置管理" name="second">
+        <el-tab-pane label="天花" name="second">
           <div class="pane">
             <div class="pane-item" v-for="item in 3" :key="item">
               <el-image :src="src" fit="cover" style="width:270px;height:150px"></el-image>
@@ -57,7 +57,7 @@
           </div>
         </el-tab-pane>
 
-        <el-tab-pane label="角色管理" name="third">
+        <el-tab-pane label="流感" name="third">
 
           <div class="pane">
             <div class="pane-item"  v-for="item in 3" :key="item">
@@ -66,22 +66,6 @@
                 <div class="title">xxxxxxxxxxxxxxxxxxxx</div>
                 <div class="content">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
                 <div class="button-box"> <el-button type="primary"  @click="gotoChange(3,3)" plain>READ MORE</el-button></div>
-              </div>
-              <div class="show-date">
-                title
-              </div>
-            </div>
-          </div>
-        </el-tab-pane>
-
-        <el-tab-pane label="定时任务补偿" name="fourth">
-          <div class="pane">
-            <div class="pane-item"  v-for="item in 3" :key="item">
-              <el-image :src="src" fit="cover" style="width:270px;height:150px"></el-image>
-              <div class="align-box">
-                <div class="title">xxxxxxxxxxxxxxxxxxxx</div>
-                <div class="content">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
-                <div class="button-box"> <el-button type="primary" @click="gotoChange(3,3)" plain>READ MORE</el-button></div>
               </div>
               <div class="show-date">
                 title

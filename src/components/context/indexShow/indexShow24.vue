@@ -39,8 +39,7 @@ export default {
         fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
         sources: [
           {
-            src:
-              "https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv/tieba-smallvideo/60_32ff93a80ece68e52fcde3476bfbf1e0.mp4", // 路径
+            src: "http://xgpax.top/video/wash_hand.mp4", // 路径
             type: "video/mp4" // 类型
           }
           //   {
@@ -61,18 +60,30 @@ export default {
 
       playing: 0,
       text: [
-        "我也不记得",
-        "女学。～圣女斯克威尔学院～：第03集",
-        "精灵宝可梦：第22集",
-        "博人转"
+        "抗击疫情错过结婚后 武警小哥与女朋友在夜幕下隔门合影实现心愿",
+        "MV：《抗击疫情，我们不怕！》",
+        "抗击疫情 人人有责",
+        "洗手的动作规范",
+        "抗击疫情公益宣传片——《中国有你》"
       ],
 
       urls: [
-        "https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv/tieba-smallvideo/60_32ff93a80ece68e52fcde3476bfbf1e0.mp4",
-        "https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv/tieba-smallvideo/607272_c405703ba6e7bab48cfd642d45b90e70.mp4",
-        "http://113.96.221.165/vmtt.tc.qq.com/1098_9b6df530e7d37eb877936c693a4f4922.f0.mp4?vkey=4E0C603C0990E2999DCC807D60D0F5387B7779BDF3679B836E872EF42C0570F2CA73F9B29D1AF2664EEFCCE62CC240360C983A4DF6A4B600FA180560F80AE3E5B3717EFD466A06B13E76377737A57BEEC40EC5646F0B343E",
-        "http://59.36.120.252/vmtt.tc.qq.com/1098_3b66737ab7fc72957f0f54963483bc54.f0.mp4?vkey=6AAEEB481404A079335721EB857510AF83F9ECB4444AE60CEAC33E55204007C5BEBB3174065D869AD0ECEBDD33A64BD0BB41D260E7CF56C216A9C90C4F7F43A76593D05508F436BCA46FF21A3B5230F7000B365717888DD0"
+        "http://xgpax.top/video/girlfriend.mp4",
+        "http://xgpax.top/video/MV_.mp4",
+        "http://xgpax.top/video/everybody.mp4",
+        "http://xgpax.top/video/wash_hand.mp4",
+        "http://xgpax.top/video/wehaveyou.mp4"
       ]
+      /**
+      改为：
+      videoList:[
+        {
+          text:"抗击疫情错过结婚后 武警小哥与女朋友在夜幕下隔门合影实现心愿",
+          url:"http://xgpax.top/video/girlfriend.mp4"
+        }
+      ]
+      这样的形式
+       */
     };
   },
   components: {

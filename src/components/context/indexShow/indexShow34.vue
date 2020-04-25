@@ -5,7 +5,7 @@
       <el-main>
         <div class="show-pane">
           <el-tabs tab-position="right" style="height:900px;">
-            <el-tab-pane label="用户管理">
+            <el-tab-pane label="黑死病">
               <el-tooltip
                 v-for="(url,index) in urls"
                 :key="url"
@@ -26,7 +26,7 @@
                 ></el-image>
               </el-tooltip>
             </el-tab-pane>
-            <el-tab-pane label="配置管理">
+            <el-tab-pane label="天花">
                   <el-tooltip
                 v-for="(url,index) in urls"
                 :key="url"
@@ -48,28 +48,7 @@
               </el-tooltip>
 
             </el-tab-pane>
-            <el-tab-pane label="角色管理">
-                  <el-tooltip
-                v-for="(url,index) in urls"
-                :key="url"
-                class="item"
-                effect="dark"
-                content="点击预览大图"
-                placement="top-start"
-              >
-                <!-- click与mouseenter为同情况,设置最高400px -->
-                <el-image
-                  @click="storyShow(index)"
-                  @mouseenter="storyShow(index)"
-                  :preview-src-list="urls"
-                  :src="url"
-                  fit="fit"
-                  style="width:45%"
-                  lazy
-                ></el-image>
-              </el-tooltip>
-            </el-tab-pane>
-            <el-tab-pane label="定时任务补偿">
+            <el-tab-pane label="流感">
                   <el-tooltip
                 v-for="(url,index) in urls"
                 :key="url"

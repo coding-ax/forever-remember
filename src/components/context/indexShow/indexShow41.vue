@@ -4,7 +4,7 @@
       <el-header></el-header>
       <el-main>
         <div class="title">
-          <h3>个人卫生防护手段</h3>
+          <h3>以史为鉴</h3>
         </div>
         <div class="body">
           <div class="body-item">
