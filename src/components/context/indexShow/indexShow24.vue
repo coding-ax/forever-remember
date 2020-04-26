@@ -16,6 +16,7 @@
         plain
         v-for="(item,index) in text"
         :key="item"
+        :disabled="current==index"
       >{{item}}</el-button>
     </div>
   </div>
@@ -24,6 +25,7 @@
 <script>
 import { videoPlayer } from "vue-video-player";
 import "video.js/dist/video-js.css";
+import { request } from "../../../network/index";
 export default {
   name: "indexShow24",
   data() {
@@ -39,7 +41,7 @@ export default {
         fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
         sources: [
           {
-            src: "http://xgpax.top/video/wash_hand.mp4", // 路径
+            src: "http://xgpax.top/video/girlfriend.mp4", // 路径
             type: "video/mp4" // 类型
           }
           //   {
@@ -60,20 +62,12 @@ export default {
 
       playing: 0,
       text: [
-        "抗击疫情错过结婚后 武警小哥与女朋友在夜幕下隔门合影实现心愿",
-        "MV：《抗击疫情，我们不怕！》",
-        "抗击疫情 人人有责",
-        "洗手的动作规范",
-        "抗击疫情公益宣传片——《中国有你》"
       ],
 
       urls: [
-        "http://xgpax.top/video/girlfriend.mp4",
-        "http://xgpax.top/video/MV_.mp4",
-        "http://xgpax.top/video/everybody.mp4",
-        "http://xgpax.top/video/wash_hand.mp4",
-        "http://xgpax.top/video/wehaveyou.mp4"
-      ]
+      ],
+
+      current:0
       /**
       改为：
       videoList:[
@@ -93,7 +87,22 @@ export default {
     changePlayer(index) {
       let src = this.urls[index];
       this.playerOptions.sources[0].src = src;
+      this.current=index;
     }
+  },
+  created() {
+    // http://123.57.249.95:8091/fr/video
+    let instance = request();
+    instance
+      .get("http://123.57.249.95:8091/fr/video")
+      .then(res => {
+       console.log(res);
+       let response=res.data.data;
+       for(let item of response){
+         this.text.push(item.title);
+         this.urls.push(item.url);
+       }
+      });
   }
 };
 </script>
@@ -121,4 +130,5 @@ export default {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 </style>

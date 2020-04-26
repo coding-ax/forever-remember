@@ -4,10 +4,15 @@
       <el-header></el-header>
       <el-main>
         <div class="title">
-          <h3>那些历史上的传染病</h3>
+          <h3>历史上的大型传染病</h3>
         </div>
         <div class="body">
-          <div class="body-item">
+          <div class="body-item" v-for="item in ans" :key="item.title">
+            <div class="date">{{item.title}}</div>
+            <div class="de-title">{{item.deTitle}}</div>
+            <div class="detail">{{item.description}}</div>
+          </div>
+          <!-- <div class="body-item">
             <div class="date">xxx-xxxx</div>
             <div class="de-title">xxxx title</div>
             <div class="detail">
@@ -34,21 +39,7 @@
               xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
               xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
             </div>
-          </div>
-          <div class="body-item">
-            <div class="date">xxx-xxxx</div>
-            <div class="de-title">xxxx title</div>
-            <div class="detail">
-              xxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-            </div>
-          </div>
+          </div>-->
         </div>
         <div class="read-more">
           <el-button type="primary" @click="gotoChange(3,2)" plain>查看更多</el-button>
@@ -60,23 +51,50 @@
 </template>
 
 <script>
+import { request } from "../../../network/index";
 export default {
   name: "indexShow31",
   data() {
-    return {};
+    return {
+      ans: []
+    };
   },
   components: {},
-  methods: { 
+  methods: {
     gotoChange(x, y) {
       this.$emit("changeway", x, y);
     }
+  },
+  created() {
+    //从载入的network中调用axios
+    let instance = request();
+    instance
+      .get("http://123.57.249.95:8091/fr/article?articleId=5")
+      .then(res => {
+        let req = res.data.data.paragraphVOList;
+        let count = 0;
+        for (let item of req) {
+          count++;
+          if (count > 3) break;
+          let title = item.title.slice(0, item.title.indexOf("---"));
+          let deTitle = item.title.slice(item.title.indexOf("---")+3,item.title.length);
+          // console.log(title);
+          //  console.log(description);
+          this.ans.push({
+            title,
+            deTitle,
+            description:item.description
+          })
+        }
+        console.log(3.1, res);
+      });
   }
 };
 </script>
 
 <style scoped>
 .show-box {
-width: 99%;
+  width: 99%;
   height: 100%;
 }
 .el-container {
@@ -134,5 +152,12 @@ body > .el-container {
 .de-title {
   /* border-bottom: #EBEEF5 1px solid; */
   border-bottom: #dcdfe6 1px solid;
+}
+.detail {
+  width: 100%;
+  display: -webkit-box; /* 弹性盒模型*/
+  -webkit-box-orient: vertical; /* 文字垂直排列 */
+  -webkit-line-clamp: 3; /*文字显示的行数*/
+  overflow: hidden; /*超出部分溢出隐藏*/
 }
 </style>

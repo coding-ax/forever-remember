@@ -63,10 +63,12 @@
 export default {
   name: "indexShow41",
   data() {
-    return {};
+    return {
+      // "data": {"background": ["http://xgpax.top/img/coronavirus-background.jpg","http://xgpax.top/img/changjiangdaqiao.png","http://xgpax.top/img/wuhanjiayou_1.jpg","http://xgpax.top/img/tianhua-background.jpg","http://xgpax.top/img/liugan-background.jpg","http://xgpax.top/img/blackDeath-background.jpg"],"blcakDeath": ["http://xgpax.top/img/blackDeath1.jpg","http://xgpax.top/img/blackDeath2.jpg","http://xgpax.top/img/blackDeath3.jpg","http://xgpax.top/img/blackDeath4.jpg","http://xgpax.top/img/blackDeath5.jpg","http://xgpax.top/img/blackDeath6.jpg"],"tianhua": ["http://xgpax.top/img/tianhua1.jpg","http://xgpax.top/img/tianhua2.jpg","http://xgpax.top/img/tianhua3.jpg","http://xgpax.top/img/tianhua4.jpg","http://xgpax.top/img/tianhua5.jpg"],"liugan": ["http://xgpax.top/img/liugan1.jpg","http://xgpax.top/img/liugan2.jpg","http://xgpax.top/img/liugan3.jpg","http://xgpax.top/img/liugan4.jpg","http://xgpax.top/img/liugan5.jpg"]}
+    };
   },
   components: {},
-  methods: { 
+  methods: {
     gotoChange(x, y) {
       this.$emit("changeway", x, y);
     }

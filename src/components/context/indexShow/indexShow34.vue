@@ -7,7 +7,7 @@
           <el-tabs tab-position="right" style="height:900px;">
             <el-tab-pane label="黑死病">
               <el-tooltip
-                v-for="(url,index) in urls"
+                v-for="url in blackDeath"
                 :key="url"
                 class="item"
                 effect="dark"
@@ -15,20 +15,12 @@
                 placement="top-start"
               >
                 <!-- click与mouseenter为同情况,设置最高400px -->
-                <el-image
-                  @click="storyShow(index)"
-                  @mouseenter="storyShow(index)"
-                  :preview-src-list="urls"
-                  :src="url"
-                  fit="fit"
-                  style="width:45%"
-                  lazy
-                ></el-image>
+                <el-image :preview-src-list="blackDeath" :src="url" fit="fit" style="width:45%"></el-image>
               </el-tooltip>
             </el-tab-pane>
             <el-tab-pane label="天花">
-                  <el-tooltip
-                v-for="(url,index) in urls"
+              <el-tooltip
+                v-for="url in tianhua"
                 :key="url"
                 class="item"
                 effect="dark"
@@ -36,21 +28,12 @@
                 placement="top-start"
               >
                 <!-- click与mouseenter为同情况,设置最高400px -->
-                <el-image
-                  @click="storyShow(index)"
-                  @mouseenter="storyShow(index)"
-                  :preview-src-list="urls"
-                  :src="url"
-                  fit="fit"
-                  style="width:45%"
-                  lazy
-                ></el-image>
+                <el-image :preview-src-list="tianhua" :src="url" fit="fit" style="width:45%" lazy></el-image>
               </el-tooltip>
-
             </el-tab-pane>
             <el-tab-pane label="流感">
-                  <el-tooltip
-                v-for="(url,index) in urls"
+              <el-tooltip
+                v-for="url in liugan"
                 :key="url"
                 class="item"
                 effect="dark"
@@ -58,15 +41,7 @@
                 placement="top-start"
               >
                 <!-- click与mouseenter为同情况,设置最高400px -->
-                <el-image
-                  @click="storyShow(index)"
-                  @mouseenter="storyShow(index)"
-                  :preview-src-list="urls"
-                  :src="url"
-                  fit="fit"
-                  style="width:45%"
-                  lazy
-                ></el-image>
+                <el-image :preview-src-list="liugan" :src="url" fit="fit" style="width:45%" lazy></el-image>
               </el-tooltip>
             </el-tab-pane>
           </el-tabs>
@@ -83,8 +58,47 @@ export default {
   name: "indexShow11",
   data() {
     return {
-         //存放图片地址
+      //存放图片地址
       urls: [],
+      /**
+      {
+        background:[
+          "http://xgpax.top/img/coronavirus-background.jpg",
+          "http://xgpax.top/img/changjiangdaqiao.png",
+        "http://xgpax.top/img/wuhanjiayou_1.jpg",
+          "http://xgpax.top/img/tianhua-background.jpg",
+          "http://xgpax.top/img/liugan-background.jpg",
+          "http://xgpax.top/img/blackDeath-background.jpg",
+        ],
+    blcakDeath[
+       "http://xgpax.top/img/blackDeath1.jpg",
+        "http://xgpax.top/img/blackDeath2.jpg",
+        "http://xgpax.top/img/blackDeath3.jpg",
+        "http://xgpax.top/img/blackDeath4.jpg",
+        "http://xgpax.top/img/blackDeath5.jpg",
+        "http://xgpax.top/img/blackDeath6.jpg"
+    ],
+     tianhua: [
+        "http://xgpax.top/img/tianhua1.jpg",
+        "http://xgpax.top/img/tianhua2.jpg",
+        "http://xgpax.top/img/tianhua3.jpg",
+        "http://xgpax.top/img/tianhua4.jpg",
+        "http://xgpax.top/img/tianhua5.jpg"
+      ],
+       liugan: [
+        "http://xgpax.top/img/liugan1.jpg",
+        "http://xgpax.top/img/liugan2.jpg",
+        "http://xgpax.top/img/liugan3.jpg",
+        "http://xgpax.top/img/liugan4.jpg",
+        "http://xgpax.top/img/liugan5.jpg"
+      ]
+      }
+  
+      
+       */
+      blackDeath: [],
+      tianhua: [],
+      liugan: []
     };
   },
   components: {},
@@ -92,19 +106,12 @@ export default {
   created() {
     //从载入的network中调用axios
     let instance = request();
-    instance
-      .get("http://123.57.249.95:8091/fr/article?articleId=4")
-      .then(res => {
-        let ans = res.data.data.paragraphVOList;
-        console.log(ans);
-        for (let item of ans) {
-          if (item.img) {
-            this.urls.push(item.img);
-          }
-
-          // console.log(item.description.replace(/\\r\\n/g, ","));
-        }
-      });
+    instance.get("http://123.57.249.95:8091/fr/img").then(res => {
+      let ans = res.data.data;
+      this.blackDeath = ans.blcakDeath;
+      this.tianhua = ans.tianhua;
+      this.liugan = ans.liugan;
+    });
   }
 };
 </script>
@@ -147,10 +154,10 @@ body > .el-container {
   line-height: 320px;
 }
 
-.el-tabs{
-    overflow-y: scroll;
+.el-tabs {
+  overflow-y: scroll;
 }
-.el-tab-pane{
-    position:sticky;
+.el-tab-pane {
+  position: sticky;
 }
 </style>

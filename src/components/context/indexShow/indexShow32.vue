@@ -31,7 +31,7 @@
                   class="content"
                 >xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
                 <div class="button-box">
-                  <el-button type="primary"  @click="gotoChange(3,3)" plain>READ MORE</el-button>
+                  <el-button type="primary" @click="gotoChange(3,3)" plain>READ MORE</el-button>
                 </div>
               </div>
               <div class="show-date">title</div>
@@ -49,7 +49,7 @@
                   class="content"
                 >xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
                 <div class="button-box">
-                  <el-button type="primary"  @click="gotoChange(3,3)" plain>READ MORE</el-button>
+                  <el-button type="primary" @click="gotoChange(3,3)" plain>READ MORE</el-button>
                 </div>
               </div>
               <div class="show-date">title</div>
@@ -58,18 +58,19 @@
         </el-tab-pane>
 
         <el-tab-pane label="流感" name="third">
-
           <div class="pane">
-            <div class="pane-item"  v-for="item in 3" :key="item">
+            <div class="pane-item" v-for="item in 3" :key="item">
               <el-image :src="src" fit="cover" style="width:270px;height:150px"></el-image>
               <div class="align-box">
                 <div class="title">xxxxxxxxxxxxxxxxxxxx</div>
-                <div class="content">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
-                <div class="button-box"> <el-button type="primary"  @click="gotoChange(3,3)" plain>READ MORE</el-button></div>
+                <div
+                  class="content"
+                >xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
+                <div class="button-box">
+                  <el-button type="primary" @click="gotoChange(3,3)" plain>READ MORE</el-button>
+                </div>
               </div>
-              <div class="show-date">
-                title
-              </div>
+              <div class="show-date">title</div>
             </div>
           </div>
         </el-tab-pane>
@@ -87,13 +88,16 @@
 </template>
 
 <script>
+import { request } from "../../../network/index";
 export default {
   name: "indexShow11",
   data() {
     return {
       src:
         "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg",
-      activeName: "first"
+      activeName: "first",
+
+      ans: []
     };
   },
   components: {},
@@ -104,6 +108,33 @@ export default {
     gotoChange(x, y) {
       this.$emit("changeway", x, y);
     }
+  },
+  created() {
+    //从载入的network中调用axios
+    let instance = request();
+    instance
+      .get("http://123.57.249.95:8091/fr/article?articleId=5")
+      .then(res => {
+        let req = res.data.data.paragraphVOList;
+        let count = 0;
+        for (let item of req) {
+          count++;
+          if (count > 3) break;
+          let title = item.title.slice(0, item.title.indexOf("---"));
+          let deTitle = item.title.slice(
+            item.title.indexOf("---") + 3,
+            item.title.length
+          );
+          // console.log(title);
+          //  console.log(description);
+          this.ans.push({
+            title,
+            deTitle,
+            description: item.description
+          });
+        }
+        console.log(3.1, res);
+      });
   }
 };
 </script>

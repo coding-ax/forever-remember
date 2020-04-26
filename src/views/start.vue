@@ -1,7 +1,7 @@
 <template>
   <div class="start-box">
     <!-- 背景层 -->
-    <feature-view>
+    <feature-view image="http://xgpax.top/img/wuhanjiayou_1.jpg">
       <transition name="el-zoom-in-center">
         <get-start v-show="show"></get-start>
       </transition>
