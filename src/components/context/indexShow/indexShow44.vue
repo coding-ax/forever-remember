@@ -83,7 +83,6 @@ export default {
 
 <style scoped>
 .show-box {
-
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -93,7 +92,7 @@ export default {
   height: 100%;
   overflow-y: scroll;
   width: 99%;
-
+  background-color: #ecf0f1;
 }
 .title {
   padding: 20px;

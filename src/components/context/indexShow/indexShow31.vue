@@ -100,6 +100,7 @@ export default {
   background-image: url(https://xgpax.top/img/tianhua-background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+    font-weight: bolder;
 }
 .el-container {
   width: 100%;
