@@ -15,7 +15,7 @@
                 placement="top-start"
               >
                 <!-- click与mouseenter为同情况,设置最高400px -->
-                <el-image :preview-src-list="blackDeath" :src="url" fit="fit" style="width:45%"></el-image>
+                <el-image :preview-src-list="blackDeath" :src="url" fit="fit" style="width:45%;height:400px;"></el-image>
               </el-tooltip>
             </el-tab-pane>
             <el-tab-pane label="天花">
@@ -28,7 +28,7 @@
                 placement="top-start"
               >
                 <!-- click与mouseenter为同情况,设置最高400px -->
-                <el-image :preview-src-list="tianhua" :src="url" fit="fit" style="width:45%" ></el-image>
+                <el-image :preview-src-list="tianhua" :src="url" fit="fit" style="width:45%;height:400px;" ></el-image>
               </el-tooltip>
             </el-tab-pane>
             <el-tab-pane label="流感">
@@ -41,7 +41,7 @@
                 placement="top-start"
               >
                 <!-- click与mouseenter为同情况,设置最高400px -->
-                <el-image :preview-src-list="liugan" :src="url" fit="fit" style="width:45%"></el-image>
+                <el-image :preview-src-list="liugan" :src="url" fit="fit" style="width:45%;height:400px;"></el-image>
               </el-tooltip>
             </el-tab-pane>
           </el-tabs>

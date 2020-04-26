@@ -13,14 +13,14 @@
           content="点击预览大图"
           placement="top-start"
         >
-        <!-- click与mouseenter为同情况,设置最高400px -->
+          <!-- click与mouseenter为同情况,设置最高400px -->
           <el-image
             @click="storyShow(index)"
             @mouseenter="storyShow(index)"
             :preview-src-list="urls"
             :src="url"
             fit="fit"
-            style="max-height:400px"
+            style="width:20%;height:300px"
             lazy
           ></el-image>
         </el-tooltip>
@@ -41,7 +41,7 @@
         ></el-image>-->
       </el-main>
       <!-- //处理文字： -->
-      <el-main>
+      <el-main >
         <transition name="el-zoom-in-center">
           <div v-show="showText" class="transition-box" id="show-text">
             <div style="textAlign:center">
@@ -62,6 +62,7 @@
 
 <script>
 import { request } from "../../../network/index";
+import featureView from "../../common/FeatureView";
 export default {
   name: "indexShow21",
   data() {
@@ -78,7 +79,9 @@ export default {
       heroName: []
     };
   },
-  components: {},
+  components: {
+    featureView
+  },
   methods: {
     //点击图片和移动，用于加载动画
     storyShow(index) {
@@ -113,10 +116,11 @@ export default {
 </script>
 
 <style scoped>
-.box{
+.box {
   background-image: url(http://xgpax.top/img/wuhanjiayou_1.jpg);
   background-position: center;
   background-size: contain;
+  background-repeat: no-repeat;
 }
 .el-header,
 .el-footer {
@@ -127,13 +131,14 @@ export default {
 }
 .el-main {
   /* background-color: #e9eef3; */
-  color: #333;
   text-align: center;
-  color: #ff7675;
+  color: #273c75;
+  font-weight: bolder;
   font-size: 20px;
   overflow-y: scroll;
   height: 50vh;
   border: 1px #fefefe solid;
+
 }
 
 body > .el-container {
@@ -150,6 +155,7 @@ body > .el-container {
 }
 #show-text {
   text-align: left;
+    background-color: #fefefe;
 }
 /**图片 */
 .el-image {
@@ -167,5 +173,11 @@ body > .el-container {
   padding: 20px 0 100px;
   width: 100%;
   font-size: 15px;
+}
+
+.transition-box {
+  padding: 0 100px;
+  border: #ff7675 5px solid;
+  border-radius: 15px;
 }
 </style>

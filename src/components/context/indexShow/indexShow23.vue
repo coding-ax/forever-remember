@@ -8,7 +8,7 @@
           <div class="title">
             <h2>{{item.title}}</h2>
           </div>
-          <el-image :src="item.img"></el-image>
+          <el-image style="width:80%" :src="item.img"></el-image>
           <div class="description">{{item.description}}</div>
         </el-carousel-item>
       </el-carousel>
@@ -33,6 +33,7 @@ export default {
       .get("http://123.57.249.95:8091/fr/article?articleId=2")
       .then(res => {
         this.res = res.data.data.paragraphVOList;
+        this.res.pop();
       });
   }
 };
@@ -75,7 +76,7 @@ export default {
 .description {
   width: 350px;
   position: relative;
-  left: 190px;
+  left: 100px;
   color: #fefefe;
 }
 .el-carousel-item {
