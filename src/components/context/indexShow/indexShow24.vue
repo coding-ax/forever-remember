@@ -111,6 +111,7 @@ export default {
 .show-box {
   display: flex;
   flex-direction: row;
+  background-color:#25CCF7 ;
 }
 .watch-box {
   width: 80%;

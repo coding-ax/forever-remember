@@ -11,24 +11,24 @@
         </el-submenu>
         <el-submenu class="nav-bar-item" index="2">
           <template slot="title">英雄故事</template>
-          <el-menu-item index="2-1" @click="changeWay(2,1)">选项1</el-menu-item>
-          <el-menu-item index="2-2" @click="changeWay(2,2)">选项2</el-menu-item>
-          <el-menu-item index="2-3" @click="changeWay(2,3)">选项3</el-menu-item>
-          <el-menu-item index="2-4" @click="changeWay(2,4)">选项4</el-menu-item>
+          <el-menu-item index="2-1" @click="changeWay(2,1)">感人瞬间</el-menu-item>
+          <el-menu-item index="2-2" @click="changeWay(2,2)">烈士名录</el-menu-item>
+          <el-menu-item index="2-3" @click="changeWay(2,3)">平凡不凡</el-menu-item>
+          <el-menu-item index="2-4" @click="changeWay(2,4)">相关视频</el-menu-item>
         </el-submenu>
         <el-submenu class="nav-bar-item" index="3">
           <template slot="title">回首往昔</template>
-          <el-menu-item index="3-1" @click="changeWay(3,1)">选项1</el-menu-item>
-          <el-menu-item index="3-2" @click="changeWay(3,2)">选项2</el-menu-item>
-          <el-menu-item index="3-3" @click="changeWay(3,3)">选项3</el-menu-item>
-          <el-menu-item index="3-4" @click="changeWay(3,4)">选项4</el-menu-item>
+          <el-menu-item index="3-1" @click="changeWay(3,1)">历史概览</el-menu-item>
+          <el-menu-item index="3-2" @click="changeWay(3,2)">文章列表</el-menu-item>
+          <el-menu-item index="3-3" @click="changeWay(3,3)">文章详情</el-menu-item>
+          <el-menu-item index="3-4" @click="changeWay(3,4)">历史图集</el-menu-item>
         </el-submenu>
         <el-submenu class="nav-bar-item" index="4">
           <template slot="title">警世之钟</template>
-          <el-menu-item index="4-1" @click="changeWay(4,1)">选项1</el-menu-item>
-          <el-menu-item index="4-2" @click="changeWay(4,2)">选项2</el-menu-item>
-          <el-menu-item index="4-3" @click="changeWay(4,3)">选项3</el-menu-item>
-          <el-menu-item index="4-4" @click="changeWay(4,4)">选项4</el-menu-item>
+          <el-menu-item index="4-1" @click="changeWay(4,1)">文章概览</el-menu-item>
+          <el-menu-item index="4-2" @click="changeWay(4,2)">文章列表</el-menu-item>
+          <el-menu-item index="4-3" @click="changeWay(4,3)">文章详情</el-menu-item>
+          <el-menu-item index="4-4" @click="changeWay(4,4)">留言板</el-menu-item>
         </el-submenu>
       </el-menu>
     </div>
@@ -54,6 +54,7 @@
               <!-- 用单页级别(views级)组件取代这个东西 -->
               <!-- <h1>{{item1}}&{{item2}}</h1> -->
               <component :is="'indexShow'+item1+item2" @changeway="changeWay"></component>
+
             </div>
           </el-carousel-item>
         </el-carousel>
@@ -64,6 +65,7 @@
 
 <script>
 import { request } from "../network/index";
+import FeatureView from "../components/common/FeatureView";
 
 import indexShow11 from "../components/context/indexShow/indexShow11";
 import indexShow12 from "../components/context/indexShow/indexShow12";
@@ -103,7 +105,8 @@ export default {
     indexShow41,
     indexShow42,
     indexShow43,
-    indexShow44
+    indexShow44,
+    FeatureView
   },
   created() {
     // http://123.57.249.95:8091/fr/data

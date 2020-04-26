@@ -1,5 +1,5 @@
 <template>
-  <div class>
+  <div class="box">
     <el-container>
       <!-- 标题栏 -->
       <el-header>那些逆行者们</el-header>
@@ -113,6 +113,11 @@ export default {
 </script>
 
 <style scoped>
+.box{
+  background-image: url(http://xgpax.top/img/wuhanjiayou_1.jpg);
+  background-position: center;
+  background-size: contain;
+}
 .el-header,
 .el-footer {
   /* background-color: #b3c0d1; */
@@ -124,7 +129,7 @@ export default {
   /* background-color: #e9eef3; */
   color: #333;
   text-align: center;
-  color: #888888;
+  color: #ff7675;
   font-size: 20px;
   overflow-y: scroll;
   height: 50vh;

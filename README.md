@@ -31,7 +31,7 @@ network封装了一个axios实例（具体接口不明确，所以先。。。�
 
 <a href="https://github.com/axios/axios">axios</a>  
 
-<a href="https://github.com/axios/axios">vue-video-player</a>  
+<a href="https://github.com/surmon-china/vue-video-player">vue-video-player</a>  
 
 ## Project setup
 ```

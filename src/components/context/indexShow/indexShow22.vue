@@ -84,17 +84,22 @@ export default {
     /**测试是否检测的到 */
     banMove() {
       console.log("Move in");
-     this.$emit('banMouse');
+      this.$emit("banMouse");
     },
     recover() {
       console.log("move out");
-     this.$emit('recoverMouse');
+      this.$emit("recoverMouse");
     }
   }
 };
 </script>
 
 <style scoped>
+.box {
+  background: url(http://xgpax.top/img/lazhu.jpg);
+  background-position: center;
+  background-size: contain;
+}
 .place {
   text-align: center;
 }
@@ -117,8 +122,8 @@ export default {
   height: 100px;
   border-radius: 50%;
   box-shadow: 2px 2px 2px #888888;
-  background-color: #3498db;
-  color: #fefefe;
+  background-color: #ffeaa7;
+  color: #d63031;
 }
 /* .el-button {
   margin: 10px;
@@ -133,8 +138,7 @@ export default {
   font-size: 30px;
   height: 10vh;
   line-height: 10vh;
-  color: #888888;
-  
+  color: #fefefe;
 }
 .show-button {
   padding: 50px;

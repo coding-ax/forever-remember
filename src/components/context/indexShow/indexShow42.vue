@@ -21,70 +21,18 @@
 
     <div class="body-box">
       <el-tabs v-model="activeName" type="card" @tab-click="handleClick" style="width:80%">
-        <el-tab-pane label="用户管理" name="first">
+        <el-tab-pane label="文章列表" name="first">
           <div class="pane">
-            <div class="pane-item" v-for="item in 3" :key="item">
-              <el-image :src="src" fit="cover" style="width:270px;height:150px"></el-image>
+            <div class="pane-item" v-for="item in aList" :key="item.title" >
+              <el-image :class="{dis:!item.img}" :src="item.img" fit="cover" style="width:270px;height:150px"></el-image>
               <div class="align-box">
-                <div class="title">xxxxxxxxxxxxxxxxxxxx</div>
+                <div class="title">{{item.title}}</div>
                 <div
                   class="content"
-                >xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
+                >{{item.description}}</div>
                 <div class="button-box">
-                  <el-button type="primary"  @click="gotoChange(3,3)" plain>READ MORE</el-button>
+                  <el-button type="primary" @click="gotoChange(4,3)" plain>READ MORE</el-button>
                 </div>
-              </div>
-              <div class="show-date">title</div>
-            </div>
-          </div>
-        </el-tab-pane>
-
-        <el-tab-pane label="配置管理" name="second">
-          <div class="pane">
-            <div class="pane-item" v-for="item in 3" :key="item">
-              <el-image :src="src" fit="cover" style="width:270px;height:150px"></el-image>
-              <div class="align-box">
-                <div class="title">xxxxxxxxxxxxxxxxxxxx</div>
-                <div
-                  class="content"
-                >xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
-                <div class="button-box">
-                  <el-button type="primary"  @click="gotoChange(3,3)" plain>READ MORE</el-button>
-                </div>
-              </div>
-              <div class="show-date">title</div>
-            </div>
-          </div>
-        </el-tab-pane>
-
-        <el-tab-pane label="角色管理" name="third">
-
-          <div class="pane">
-            <div class="pane-item"  v-for="item in 3" :key="item">
-              <el-image :src="src" fit="cover" style="width:270px;height:150px"></el-image>
-              <div class="align-box">
-                <div class="title">xxxxxxxxxxxxxxxxxxxx</div>
-                <div class="content">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
-                <div class="button-box"> <el-button type="primary"  @click="gotoChange(3,3)" plain>READ MORE</el-button></div>
-              </div>
-              <div class="show-date">
-                title
-              </div>
-            </div>
-          </div>
-        </el-tab-pane>
-
-        <el-tab-pane label="定时任务补偿" name="fourth">
-          <div class="pane">
-            <div class="pane-item"  v-for="item in 3" :key="item">
-              <el-image :src="src" fit="cover" style="width:270px;height:150px"></el-image>
-              <div class="align-box">
-                <div class="title">xxxxxxxxxxxxxxxxxxxx</div>
-                <div class="content">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
-                <div class="button-box"> <el-button type="primary" @click="gotoChange(3,3)" plain>READ MORE</el-button></div>
-              </div>
-              <div class="show-date">
-                title
               </div>
             </div>
           </div>
@@ -103,13 +51,14 @@
 </template>
 
 <script>
+import { request } from "../../../network/index";
 export default {
   name: "indexShow42",
   data() {
     return {
-      src:
-        "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg",
-      activeName: "first"
+      src: "http://xgpax.top/img/coronavirus-background.jpg",
+      activeName: "first",
+      aList:[]
     };
   },
   components: {},
@@ -120,6 +69,37 @@ export default {
     gotoChange(x, y) {
       this.$emit("changeway", x, y);
     }
+  },
+  created() {
+    //从载入的network中调用axios
+    let instance = request();
+    instance
+      .get("http://123.57.249.95:8091/fr/article?articleId=7")
+      .then(res => {
+        let req = res.data.data.paragraphVOList;
+        this.aList = req;
+        let instance2 = request();
+        return instance2.get(
+          "http://123.57.249.95:8091/fr/article?articleId=8"
+        );
+      })
+      .then(res => {
+        this.aList.push(...res.data.data.paragraphVOList);
+        let instance3 = request();
+        return instance3.get(
+          "http://123.57.249.95:8091/fr/article?articleId=10"
+        );
+      })
+      .then(res => {
+        this.aList.push(...res.data.data.paragraphVOList);
+        let instance4 = request();
+        return instance4.get(
+          "http://123.57.249.95:8091/fr/article?articleId=9"
+        );
+      })
+      .then(res => {
+        this.aList.push(...res.data.data.paragraphVOList);
+      });
   }
 };
 </script>
@@ -148,7 +128,7 @@ export default {
 }
 .pane-item:hover {
   background-color: rgba(77, 77, 77, 0.3);
-  margin: 70px 50px 70px 190px;
+  margin: 2px 5px 10px 5px;
 }
 .pane-item {
   display: flex;
@@ -166,5 +146,15 @@ export default {
   line-height: 40px;
   align-items: center;
   justify-content: center;
+}
+.content {
+  width: 100%;
+  display: -webkit-box; /* 弹性盒模型*/
+  -webkit-box-orient: vertical; /* 文字垂直排列 */
+  -webkit-line-clamp: 3; /*文字显示的行数*/
+  overflow: hidden; /*超出部分溢出隐藏*/
+}
+.dis{
+  opacity: 0;
 }
 </style>

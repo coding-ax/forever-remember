@@ -7,46 +7,10 @@
           <h3>以史为鉴</h3>
         </div>
         <div class="body">
-          <div class="body-item">
-            <div class="date">xxx-xxxx</div>
-            <div class="de-title">xxxx title</div>
+          <div class="body-item" v-for="item in aList" :key="item.title">
+            <div class="date">{{item.title}}</div>
             <div class="detail">
-              xxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-            </div>
-          </div>
-          <div class="body-item">
-            <div class="date">xxx-xxxx</div>
-            <div class="de-title">xxxx title</div>
-            <div class="detail">
-              xxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-            </div>
-          </div>
-          <div class="body-item">
-            <div class="date">xxx-xxxx</div>
-            <div class="de-title">xxxx title</div>
-            <div class="detail">
-              xxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+             {{item.description}}
             </div>
           </div>
         </div>
@@ -60,11 +24,12 @@
 </template>
 
 <script>
+import { request } from "../../../network/index";
 export default {
   name: "indexShow41",
   data() {
     return {
-      // "data": {"background": ["http://xgpax.top/img/coronavirus-background.jpg","http://xgpax.top/img/changjiangdaqiao.png","http://xgpax.top/img/wuhanjiayou_1.jpg","http://xgpax.top/img/tianhua-background.jpg","http://xgpax.top/img/liugan-background.jpg","http://xgpax.top/img/blackDeath-background.jpg"],"blcakDeath": ["http://xgpax.top/img/blackDeath1.jpg","http://xgpax.top/img/blackDeath2.jpg","http://xgpax.top/img/blackDeath3.jpg","http://xgpax.top/img/blackDeath4.jpg","http://xgpax.top/img/blackDeath5.jpg","http://xgpax.top/img/blackDeath6.jpg"],"tianhua": ["http://xgpax.top/img/tianhua1.jpg","http://xgpax.top/img/tianhua2.jpg","http://xgpax.top/img/tianhua3.jpg","http://xgpax.top/img/tianhua4.jpg","http://xgpax.top/img/tianhua5.jpg"],"liugan": ["http://xgpax.top/img/liugan1.jpg","http://xgpax.top/img/liugan2.jpg","http://xgpax.top/img/liugan3.jpg","http://xgpax.top/img/liugan4.jpg","http://xgpax.top/img/liugan5.jpg"]}
+      aList: []
     };
   },
   components: {},
@@ -72,6 +37,31 @@ export default {
     gotoChange(x, y) {
       this.$emit("changeway", x, y);
     }
+  },
+
+  created() {
+    //从载入的network中调用axios
+    let instance = request();
+    instance
+      .get("http://123.57.249.95:8091/fr/article?articleId=7")
+      .then(res => {
+        let req = res.data.data.paragraphVOList;
+        this.aList = req;
+        let instance2 = request();
+        return instance2.get(
+          "http://123.57.249.95:8091/fr/article?articleId=8"
+        );
+      })
+      .then(res => {
+        this.aList.push(...res.data.data.paragraphVOList);
+        let instance3 = request();
+        return instance3.get(
+          "http://123.57.249.95:8091/fr/article?articleId=10"
+        );
+      })
+      .then(res => {
+        this.aList.push(...res.data.data.paragraphVOList);
+      });
   }
 };
 </script>
@@ -136,5 +126,12 @@ body > .el-container {
 .de-title {
   /* border-bottom: #EBEEF5 1px solid; */
   border-bottom: #dcdfe6 1px solid;
+}
+.detail {
+  width: 100%;
+  display: -webkit-box; /* 弹性盒模型*/
+  -webkit-box-orient: vertical; /* 文字垂直排列 */
+  -webkit-line-clamp: 3; /*文字显示的行数*/
+  overflow: hidden; /*超出部分溢出隐藏*/
 }
 </style>

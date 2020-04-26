@@ -28,7 +28,7 @@
                 placement="top-start"
               >
                 <!-- click与mouseenter为同情况,设置最高400px -->
-                <el-image :preview-src-list="tianhua" :src="url" fit="fit" style="width:45%" lazy></el-image>
+                <el-image :preview-src-list="tianhua" :src="url" fit="fit" style="width:45%" ></el-image>
               </el-tooltip>
             </el-tab-pane>
             <el-tab-pane label="流感">
@@ -41,7 +41,7 @@
                 placement="top-start"
               >
                 <!-- click与mouseenter为同情况,设置最高400px -->
-                <el-image :preview-src-list="liugan" :src="url" fit="fit" style="width:45%" lazy></el-image>
+                <el-image :preview-src-list="liugan" :src="url" fit="fit" style="width:45%"></el-image>
               </el-tooltip>
             </el-tab-pane>
           </el-tabs>
@@ -120,6 +120,7 @@ export default {
 .show-box {
   width: 100%;
   height: 100%;
+ 
 }
 .el-container {
   width: 100%;

@@ -96,6 +96,8 @@ export default {
 .show-box {
   width: 99%;
   height: 100%;
+  background-color: #25CCF7;
+
 }
 .el-container {
   width: 100%;
@@ -104,14 +106,14 @@ export default {
 .el-header,
 .el-footer {
   /* background-color: #b3c0d1; */
-  color: #333;
+    color: #fefefe;
   text-align: center;
   line-height: 60px;
   height: 10%;
 }
 .el-main {
   /* background-color: #e9eef3; */
-  color: #333;
+  color: #fefefe;
   text-align: center;
   /* line-height: 160px; */
   height: 80%;

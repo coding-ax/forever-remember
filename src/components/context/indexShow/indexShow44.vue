@@ -83,6 +83,7 @@ export default {
 
 <style scoped>
 .show-box {
+
   display: flex;
   flex-direction: column;
   text-align: center;

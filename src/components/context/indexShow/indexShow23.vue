@@ -45,6 +45,7 @@ export default {
   width: 100%;
   height: 100%;
   padding: 15px 10%;
+  background-color: #25CCF7;
 }
 .show-title{
     position: relative;
@@ -75,7 +76,7 @@ export default {
   width: 350px;
   position: relative;
   left: 190px;
-  color: #888888;
+  color: #fefefe;
 }
 .el-carousel-item {
   display: flex;

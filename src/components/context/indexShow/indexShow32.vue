@@ -16,61 +16,52 @@
     </el-backtop>-->
 
     <div class="img-box">
-      <el-image :src="src" fit="cover" style="width: 100%; height: 600px"></el-image>
+      <el-image :src="src[current]" fit="cover" style="width: 100%; height: 600px"></el-image>
     </div>
 
     <div class="body-box">
       <el-tabs v-model="activeName" type="card" @tab-click="handleClick" style="width:80%">
         <el-tab-pane label="黑死病/鼠疫" name="first">
-          <div class="pane">
-            <div class="pane-item" v-for="item in 3" :key="item">
-              <el-image :src="src" fit="cover" style="width:270px;height:150px"></el-image>
+          <div  class="pane">
+            <div class="pane-item" v-for="item in blackDeath" :key="item.title">
+              <el-image :class="{dis:!item.img}" :src="item.img" fit="cover" style="width:270px;height:150px"></el-image>
               <div class="align-box">
-                <div class="title">xxxxxxxxxxxxxxxxxxxx</div>
-                <div
-                  class="content"
-                >xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
+                <div class="title">{{item.title}}</div>
+                <div class="content">{{item.description}}</div>
                 <div class="button-box">
                   <el-button type="primary" @click="gotoChange(3,3)" plain>READ MORE</el-button>
                 </div>
               </div>
-              <div class="show-date">title</div>
             </div>
           </div>
         </el-tab-pane>
 
         <el-tab-pane label="天花" name="second">
           <div class="pane">
-            <div class="pane-item" v-for="item in 3" :key="item">
-              <el-image :src="src" fit="cover" style="width:270px;height:150px"></el-image>
+            <div class="pane-item" v-for="item in tianhua" :key="item.title">
+              <el-image :class="{dis:!item.img}"  :src="item.img" fit="cover" style="width:270px;height:150px"></el-image>
               <div class="align-box">
-                <div class="title">xxxxxxxxxxxxxxxxxxxx</div>
-                <div
-                  class="content"
-                >xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
+                <div class="title">{{item.title}}</div>
+                <div class="content">{{item.description}}</div>
                 <div class="button-box">
                   <el-button type="primary" @click="gotoChange(3,3)" plain>READ MORE</el-button>
                 </div>
               </div>
-              <div class="show-date">title</div>
             </div>
           </div>
         </el-tab-pane>
 
         <el-tab-pane label="流感" name="third">
           <div class="pane">
-            <div class="pane-item" v-for="item in 3" :key="item">
-              <el-image :src="src" fit="cover" style="width:270px;height:150px"></el-image>
+            <div class="pane-item" v-for="item in liugan" :key="item.title">
+              <el-image :class="{dis:!item.img}" :src="item.img" fit="cover" style="width:270px;height:150px"></el-image>
               <div class="align-box">
-                <div class="title">xxxxxxxxxxxxxxxxxxxx</div>
-                <div
-                  class="content"
-                >xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
+                <div class="title">{{item.title}}</div>
+                <div class="content">{{item.description}}</div>
                 <div class="button-box">
                   <el-button type="primary" @click="gotoChange(3,3)" plain>READ MORE</el-button>
                 </div>
               </div>
-              <div class="show-date">title</div>
             </div>
           </div>
         </el-tab-pane>
@@ -82,7 +73,7 @@
     </div>
 
     <div class="footer">
-      <footer>copyright@AX</footer>
+      <footer>请使用火狐/谷歌浏览器在1920x1080下运行</footer>
     </div>
   </div>
 </template>
@@ -93,17 +84,39 @@ export default {
   name: "indexShow11",
   data() {
     return {
-      src:
-        "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg",
-      activeName: "first",
+      src: [
+        "http://xgpax.top/img/blackDeath-background.jpg",
+        "http://xgpax.top/img/tianhua-background.jpg",
+        "http://xgpax.top/img/liugan-background.jpg"
+      ],
 
-      ans: []
+      /**
+       * http://xgpax.top/img/tianhua-background.jpg
+       * http://xgpax.top/img/liugan-background.jpg
+       * http://xgpax.top/img/blackDeath-background.jpg
+       */
+      activeName: "first",
+      current: 0,
+      blackDeath: [],
+      tianhua: [],
+      liugan: []
     };
   },
   components: {},
   methods: {
     handleClick(tab, event) {
       console.log(tab, event);
+      switch (tab.name) {
+        case "first":
+          this.current = 0;
+          break;
+        case "second":
+          this.current = 1;
+          break;
+        case "third":
+          this.current = 2;
+          break;
+      }
     },
     gotoChange(x, y) {
       this.$emit("changeway", x, y);
@@ -116,25 +129,15 @@ export default {
       .get("http://123.57.249.95:8091/fr/article?articleId=5")
       .then(res => {
         let req = res.data.data.paragraphVOList;
-        let count = 0;
-        for (let item of req) {
-          count++;
-          if (count > 3) break;
-          let title = item.title.slice(0, item.title.indexOf("---"));
-          let deTitle = item.title.slice(
-            item.title.indexOf("---") + 3,
-            item.title.length
-          );
-          // console.log(title);
-          //  console.log(description);
-          this.ans.push({
-            title,
-            deTitle,
-            description: item.description
-          });
-        }
-        console.log(3.1, res);
-      });
+        // for(let i=0;i<req.length;i++)
+        this.blackDeath.push(req[0]);
+        this.tianhua.push(req[1]);
+        this.liugan.push(req[2]);
+        let instance2=request();
+        return instance2.get("http://123.57.249.95:8091/fr/article?articleId=6");
+      }).then(res=>{
+        this.tianhua.push(...res.data.data.paragraphVOList);
+      })
   }
 };
 </script>
@@ -163,7 +166,7 @@ export default {
 }
 .pane-item:hover {
   background-color: rgba(77, 77, 77, 0.3);
-  margin: 70px 50px 70px 190px;
+  margin: 2px 5px 10px 5px;
 }
 .pane-item {
   display: flex;
@@ -181,5 +184,15 @@ export default {
   line-height: 40px;
   align-items: center;
   justify-content: center;
+}
+.content {
+  width: 100%;
+  display: -webkit-box; /* 弹性盒模型*/
+  -webkit-box-orient: vertical; /* 文字垂直排列 */
+  -webkit-line-clamp: 3; /*文字显示的行数*/
+  overflow: hidden; /*超出部分溢出隐藏*/
+}
+.dis{
+  opacity: 0;
 }
 </style>
