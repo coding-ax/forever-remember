@@ -102,6 +102,7 @@ export default {
          this.text.push(item.title);
          this.urls.push(item.url);
        }
+       console.log('url',this.urls);
       });
   }
 };

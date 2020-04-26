@@ -70,6 +70,8 @@ export default {
 .show-box {
   width: 100%;
   height: 100%;
+  background-image: url(http://xgpax.top/img/changjiangdaqiao.png);
+  background-repeat: no-repeat;
 }
 .el-container {
   width: 100%;
@@ -78,17 +80,19 @@ export default {
 .el-header,
 .el-footer {
   /* background-color: #b3c0d1; */
-  color: #333;
+  color: #3498db;
+  font-weight: bolder;
   text-align: center;
   line-height: 60px;
   height: 10%;
 }
 .el-main {
   /* background-color: #e9eef3; */
-  color: #333;
+  color: #e74c3c;
   text-align: center;
   /* line-height: 160px; */
   height: 80%;
+   font-weight: bolder;
 }
 
 body > .el-container {

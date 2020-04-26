@@ -97,7 +97,9 @@ export default {
   width: 99%;
   height: 100%;
   background-color: #25CCF7;
-
+  background-image: url(https://xgpax.top/img/tianhua-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .el-container {
   width: 100%;
@@ -113,7 +115,7 @@ export default {
 }
 .el-main {
   /* background-color: #e9eef3; */
-  color: #fefefe;
+  color: #c0392b;
   text-align: center;
   /* line-height: 160px; */
   height: 80%;

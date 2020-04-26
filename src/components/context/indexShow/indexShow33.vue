@@ -63,13 +63,13 @@ export default {
       return this.artList[this.current];
     },
     nextTitle() {
-      if (this.current == this.artList.length-1) {
+      if (this.artList==null||this.current == this.artList.length-1) {
         return "后面没有了";
       }
       return this.artList[this.current + 1].title;
     },
     prevTitle() {
-      if (this.current == 0) {
+      if (this.artList==null||this.current == 0) {
         return "前面没有了";
       }
       return this.artList[this.current - 1].title;
