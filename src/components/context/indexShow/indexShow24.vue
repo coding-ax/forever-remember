@@ -96,13 +96,13 @@ export default {
     instance
       .get("http://123.57.249.95:8091/fr/video")
       .then(res => {
-       console.log(res);
+       //console.log(res);
        let response=res.data.data;
        for(let item of response){
          this.text.push(item.title);
          this.urls.push(item.url);
        }
-       console.log('url',this.urls);
+       //console.log('url',this.urls);
       });
   }
 };

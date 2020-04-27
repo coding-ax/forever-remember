@@ -49,7 +49,7 @@ export default {
     getData() {
       let instance = request();
       instance.get("http://123.57.249.95:8091/fr/message").then(res => {
-        console.log(res);
+        //console.log(res);
         this.data = res.data.data;
         this.message = "";
       });
@@ -70,7 +70,7 @@ export default {
             date
         )
         .then(res => {
-          console.log(res);
+          //console.log(res);
           this.getData();
         });
     }

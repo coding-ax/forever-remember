@@ -4,10 +4,10 @@
       <el-menu class="el-menu-demo nav-bar-box" mode="horizontal">
         <el-submenu class="nav-bar-item" index="1">
           <template slot="title">当前疫情</template>
-          <el-menu-item index="1-1" @click="changeWay(1,1)">选项1</el-menu-item>
-          <el-menu-item index="1-2" @click="changeWay(1,2)">选项2</el-menu-item>
-          <el-menu-item index="1-3" @click="changeWay(1,3)">选项3</el-menu-item>
-          <el-menu-item index="1-4" @click="changeWay(1,4)">选项4</el-menu-item>
+          <el-menu-item index="1-1" @click="changeWay(1,1)">疫情概况</el-menu-item>
+          <el-menu-item index="1-2" @click="changeWay(1,2)">疫情地图</el-menu-item>
+          <el-menu-item index="1-3" @click="changeWay(1,3)">新冠科普</el-menu-item>
+          <el-menu-item index="1-4" @click="changeWay(1,4)">漫说疫情</el-menu-item>
         </el-submenu>
         <el-submenu class="nav-bar-item" index="2">
           <template slot="title">英雄故事</template>

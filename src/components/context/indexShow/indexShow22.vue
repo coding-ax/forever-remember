@@ -63,7 +63,7 @@ export default {
     instance
       .get("http://123.57.249.95:8091/fr/article?articleId=1")
       .then(res => {
-        console.log(res.data.data.paragraphVOList);
+        //console.log(res.data.data.paragraphVOList);
         this.contents = res.data.data.paragraphVOList;
       });
   },
@@ -83,11 +83,11 @@ export default {
     },
     /**测试是否检测的到 */
     banMove() {
-      console.log("Move in");
+      //console.log("Move in");
       this.$emit("banMouse");
     },
     recover() {
-      console.log("move out");
+      //console.log("move out");
       this.$emit("recoverMouse");
     }
   }

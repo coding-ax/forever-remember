@@ -78,15 +78,15 @@ export default {
           if (count > 3) break;
           let title = item.title.slice(0, item.title.indexOf("---"));
           let deTitle = item.title.slice(item.title.indexOf("---")+3,item.title.length);
-          // console.log(title);
-          //  console.log(description);
+          // //console.log(title);
+          //  //console.log(description);
           this.ans.push({
             title,
             deTitle,
             description:item.description
           })
         }
-        console.log(3.1, res);
+        //console.log(3.1, res);
       });
   }
 };

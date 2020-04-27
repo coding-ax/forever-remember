@@ -105,7 +105,7 @@ export default {
   components: {},
   methods: {
     handleClick(tab, event) {
-      console.log(tab, event);
+      //console.log(tab, event);
       switch (tab.name) {
         case "first":
           this.current = 0;

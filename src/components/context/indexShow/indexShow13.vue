@@ -1,6 +1,6 @@
 <template>
       <div class="wenzhang" >
-        <h1 >关于新冠肺炎的一切</h1>
+        <h1 >关于新冠肺炎</h1>
         <pre>
             
 作者：吴松磊
@@ -49,7 +49,7 @@ Part 2 传播
 
 在这篇 1 月 24 日发表于《柳叶刀》的论文中，我们可以了解最早被确诊的 41 名患者的具体情况。
         </pre>
-        <img src="src\router\1.jpg">
+        <img src="../../../views/1.jpg">
         <pre>
             《2019-nCoV感染患者的临床特征》
 
@@ -176,7 +176,7 @@ export default {
    overflow-y:scroll;
    height:100vh;
    width:99%;
-
+    color: #fefefe;
    background: rgb(245, 185, 94);
  }
 

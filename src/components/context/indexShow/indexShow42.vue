@@ -64,7 +64,7 @@ export default {
   components: {},
   methods: {
     handleClick(tab, event) {
-      console.log(tab, event);
+      //console.log(tab, event);
     },
     gotoChange(x, y) {
       this.$emit("changeway", x, y);

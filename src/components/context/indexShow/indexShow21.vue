@@ -100,7 +100,7 @@ export default {
       .get("http://123.57.249.95:8091/fr/article?articleId=4")
       .then(res => {
         let ans = res.data.data.paragraphVOList;
-        console.log(ans);
+        // console.log(ans);
         for (let item of ans) {
           if (item.img) {
             this.urls.push(item.img);
@@ -108,7 +108,7 @@ export default {
             this.heroName.push(item.title);
           }
 
-          // console.log(item.description.replace(/\\r\\n/g, ","));
+          // // console.log(item.description.replace(/\\r\\n/g, ","));
         }
       });
   }
