@@ -7,7 +7,16 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
 import echarts from 'echarts'
-Vue.prototype.$echarts = echarts
+Vue.prototype.$echarts = echarts  //引入echarts
+import 'echarts/extension/bmap/bmap';
+
+
+import 'xe-utils'
+import VXETable from 'vxe-table'
+import 'vxe-table/lib/index.css'      //引入vxe-table
+ 
+
+Vue.use(VXETable)
 
 Vue.use(ElementUI);
 
