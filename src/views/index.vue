@@ -110,19 +110,14 @@ export default {
   },
   created() {
     // http://123.57.249.95:8091/fr/data
-    request()
-      .get("http://123.57.249.95:8091/fr/data", {})
-      .then(res => {
-        console.log(res);
-      });
   },
   mounted() {
     /**webkit */
     //开关
     // var flag = true;
     // window.addEventListener("mousewheel", event => {
-    //   // console.log(event.wheelDelta);
-    //   console.log("flag:", flag);
+    //   // //console.log(event.wheelDelta);
+    //   //console.log("flag:", flag);
     //   if (flag) {
     //     if (event.wheelDelta > 0) {
     //       this.prevV();
@@ -137,8 +132,8 @@ export default {
     // });
     // /**firefox */
     // window.addEventListener("DOMMouseScroll", event => {
-    //   // console.log(event);
-    //   console.log(flag);
+    //   // //console.log(event);
+    //   //console.log(flag);
     //   if (flag) {
     //     if (event.detail < 0) {
     //       this.prevV();
@@ -154,27 +149,27 @@ export default {
   },
   methods: {
     // prevV() {
-    //   //   console.log(this.$refs.vert)
-    //   //      console.log(this.$refs.vert.prev)
+    //   //   //console.log(this.$refs.vert)
+    //   //      //console.log(this.$refs.vert.prev)
     //   this.$refs.vert.prev();
     // },
     // nextV() {
     //   this.$refs.vert.next();
     // },
     handleSelect() {
-      console.log("select");
+      // //console.log("select");
     },
     activeIndex() {
-      console.log("activeIndex");
+      // //console.log("activeIndex");
     },
 
     changeWay(x, y) {
-      console.log("hh");
-      // console.log(this.$refs.vert);
-      // console.log(this.$refs.wid);
+      //console.log("hh");
+      // //console.log(this.$refs.vert);
+      // //console.log(this.$refs.wid);
       x = String(x);
       y = String(y);
-      console.log(x, y);
+      //console.log(x, y);
       this.$refs.vert.setActiveItem(x - 1);
       setTimeout(() => {
         x = Number(x);
@@ -184,11 +179,11 @@ export default {
 
     // banMouse() {
     //  window.flag = false;
-    //   console.log("index ： banMouse", window.flag);
+    //   //console.log("index ： banMouse", window.flag);
     // },
     // recover() {
     //   window.flag = true;
-    //   console.log("index ： recover", window.flag);
+    //   //console.log("index ： recover", window.flag);
     // }
   }
 };

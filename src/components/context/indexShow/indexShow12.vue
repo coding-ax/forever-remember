@@ -33,7 +33,7 @@ export default {
     instance.get("http://123.57.249.95:8091/fr/data2").then(res => {
       this.originDataOfChina = JSON.parse(res.data.data.data);
       let data = this.originDataOfChina.areaTree[0].children;
-      console.log(data);
+      // //console.log(data);
       data.forEach(item => {
         let dataItem = {};
         dataItem["name"] = item.name;
@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     chinaConfigure() {
-      // console.log(this.userJson)
+      // //console.log(this.userJson)
       let myChart = echarts.init(this.$refs.myEchart); //这里是为了获得容器所在位置
       window.onresize = myChart.resize;
       myChart.setOption({

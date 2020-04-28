@@ -86,12 +86,12 @@ export default {
         dataItem["heal"] = item.total.heal;
         dataItem["dead"] = item.total.dead;
         foreignList.push(dataItem);
-        // console.log(dataItem)
+        // //console.log(dataItem)
       });
       // foreignList.splice(0, 1);
       // this.tableData = tableData;
-      // console.log(this.tableData)
-      // console.log(this.foreignData)
+      // //console.log(this.tableData)
+      // //console.log(this.foreignData)
       this.foreignData = foreignList;
     }
     /**
@@ -100,7 +100,7 @@ export default {
       let data = this.originData.areaTree[0].children;
       //  let data = this.originData.chinaDayList;
       let foreignData = this.originData.areaTree;
-      console.log(foreignData);
+      //console.log(foreignData);
       let tableData = [];
       let foreignList = [];
       data.forEach(item => {
@@ -112,7 +112,7 @@ export default {
         dataItem["children"] = item.children;
         tableData.push(dataItem);
       });
-      console.log(tableData);
+      //console.log(tableData);
       foreignData.forEach(item => {
         let dataItem = {};
         dataItem["name"] = item.name;
@@ -120,12 +120,12 @@ export default {
         dataItem["heal"] = item.total.heal;
         dataItem["dead"] = item.total.dead;
         foreignList.push(dataItem);
-        // console.log(dataItem)
+        // //console.log(dataItem)
       });
       foreignList.splice(0, 1);
       this.tableData = tableData;
-      // console.log(this.tableData)
-      // console.log(this.foreignData)
+      // //console.log(this.tableData)
+      // //console.log(this.foreignData)
       this.foreignData = foreignList;
     }
      */
@@ -133,14 +133,14 @@ export default {
   created() {
     let instance = request();
     instance.get("http://123.57.249.95:8091/fr/data").then(res => {
-      // // console.log("1.1,", res.data.data);
+      // // //console.log("1.1,", res.data.data);
       // this.originData = JSON.parse(res.data.data.data);
       this.originData = res.data.data.data;
-      // console.log("origin:", this.originData, this.originData.areaTree);
+      // //console.log("origin:", this.originData, this.originData.areaTree);
       this.initData();
     });
     instance.get("http://123.57.249.95:8091/fr/data2").then(res => {
-      // // console.log("1.1,", res.data.data);
+      // // //console.log("1.1,", res.data.data);
       // this.originData = JSON.parse(res.data.data.data);
       this.originDataOfChina = JSON.parse(res.data.data.data);
       this.initDataOfChina();
