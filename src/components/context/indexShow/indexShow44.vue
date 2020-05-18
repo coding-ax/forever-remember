@@ -55,6 +55,15 @@ export default {
       });
     },
     sendMessage() {
+      if (this.message == "") {
+        const h = this.$createElement;
+
+        this.$notify({
+          title: "警告",
+          message: h("i", { style: "color: teal" }, "请输入内容")
+        });
+        return;
+      }
       let instance = request();
       this.show = false;
       setTimeout(() => {
@@ -62,6 +71,7 @@ export default {
       }, 500);
       // http://123.57.249.95:8091/fr/message?message=武汉加油&date=2020年4月24日16:25:33
       let date = new Date().toLocaleString();
+
       instance
         .post(
           "http://123.57.249.95:8091/fr/message?message=" +
