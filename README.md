@@ -1,5 +1,7 @@
 # forever-remember 
 ### 基于vue+elementUI与spring boot+mybatis的抗疫启示录SPA
+##### 结果：这波混了个中南赛区二等奖，还可以接受。
+
 START界面：  
 1.首先含有一个启动页： views/start组件，  
 2.start组件包括两个子组件  
